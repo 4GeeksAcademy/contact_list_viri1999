@@ -1,16 +1,16 @@
-//import react into the bundle
-import React from 'react'
-import {createRoot} from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { StoreProvider } from "./store/flux";
+import Layout from "./Layout"; 
+import "../styles/index.css"; 
 
-//include your index.scss file into the bundle
-import "../styles/index.css";
-
-//import your own components
-import Layout from './layout.js'
-
-//
-const root = createRoot(document.querySelector("#app"))
-
-//render your react application
-root.render(<Layout/>)
+ReactDOM.render(
+  <StoreProvider>
+    <Router>
+      <Layout />
+    </Router>
+  </StoreProvider>,
+  document.getElementById("root")
+);
 
